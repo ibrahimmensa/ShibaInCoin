@@ -21,14 +21,14 @@ public class DrawLine : MonoBehaviour
     public bool startDraw;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Invoke(nameof(lateStart), 1);
-    }
-    void lateStart()
-    {
-        Ball = GamePlayManager.instance.Player;
-    }
+    //void Start()
+    //{
+    //   // Invoke(nameof(lateStart), 1);
+    //}
+    //void lateStart()
+    //{
+    //    //Ball = GamePlayManager.instance.Player;
+    //}
     // Update is called once per frame
     void Update()
     {

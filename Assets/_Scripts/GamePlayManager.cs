@@ -46,17 +46,19 @@ public class GamePlayManager : MonoBehaviour
         {
             Player = PlayerObj.transform.GetChild(PlayerPrefs.GetInt("Player")).gameObject;
             Player.SetActive(true);
+            Ball = Player;
         }
         else
         {
             Player = PlayerObj.transform.GetChild(0).gameObject;
             Player.SetActive(true);
+            Ball = Player;
         }
 
         //OPen saved level or start with level 1
         if (PlayerPrefs.HasKey("Level"))
         {
-            if(PlayerPrefs.GetInt("Level") > 15)
+            if(PlayerPrefs.GetInt("Level") > 11)
             {
                 PlayerPrefs.SetInt("Level", 0);
             }
@@ -122,7 +124,42 @@ public class GamePlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!lineCreated)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("pointer");
+                Vector2 RC_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(RC_Pos, Vector2.zero);
+                if (hit)
+                {
+                    if (hit.transform.gameObject.CompareTag("Player"))
+                    {
+                        CreateLine();
+                    }
+                }
+            }
+            if (Input.GetMouseButton(0) && startDraw)
+            {
+                Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > 0.1f)
+                {
+                    UpdateLine(tempFingerPos);
+                }
+            }
+            else
+            {
+                if (startDraw)
+                {
+                    lineCreated = true;
+                    GenerateWayPoints();
+                }
+            }
+        }
+        if (Move)
+        {
+            MoveCharacter();
+        }
     }
     public void pauseBtn()
     {
@@ -182,6 +219,10 @@ public class GamePlayManager : MonoBehaviour
     }
     IEnumerator LevelCompleted()
     {
+        if (level == 10)
+        {
+            PlayerPrefs.SetInt("Level", -1);
+        }
         P_BlackScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         P_Levelcomplete.SetActive(true);
@@ -196,7 +237,10 @@ public class GamePlayManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5);
             P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
-
+            if(level == 10)
+            {
+                PlayerPrefs.SetInt("Level", 0);
+            }
         }
         yield return null;
         StopCoroutine(LevelCompleted());
@@ -210,5 +254,75 @@ public class GamePlayManager : MonoBehaviour
         P_BlackScreen.SetActive(false);
         yield return null;
         StopCoroutine(LevelFailed());
+    }
+
+
+    [Header("Line Management Variables")]
+    [Space]
+    public GameObject linePrefab;
+    public GameObject currentLine;
+
+    public LineRenderer lineRenderer;
+    public EdgeCollider2D EdgeCollider2D;
+    public List<Vector2> fingerPositions;
+
+    //myCode
+    public GameObject Ball;
+    public Transform WayPointParent;
+    public GameObject Obj;
+    public bool create;
+    public bool Move;
+    public bool lineCreated;
+    public bool startDraw;
+
+    void CreateLine()
+    {
+        startDraw = true;
+        currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
+        lineRenderer = currentLine.GetComponent<LineRenderer>();
+        EdgeCollider2D = currentLine.GetComponent<EdgeCollider2D>();
+        fingerPositions.Clear();
+        fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        lineRenderer.SetPosition(0, fingerPositions[0]);
+        lineRenderer.SetPosition(1, fingerPositions[1]);
+        EdgeCollider2D.points = fingerPositions.ToArray();
+    }
+    void UpdateLine(Vector2 newFingerPos)
+    {
+        fingerPositions.Add(newFingerPos);
+        lineRenderer.positionCount++;
+        lineRenderer.SetPosition(lineRenderer.positionCount - 1, newFingerPos);
+        EdgeCollider2D.points = fingerPositions.ToArray();
+    }
+    public void GenerateWayPoints()
+    {
+        foreach (Vector2 WayPoint in fingerPositions)
+        {
+            Instantiate(Obj, new Vector2(WayPoint.x, WayPoint.y), Quaternion.identity, WayPointParent);
+            //Obj.transform.SetParent(,false);
+        }
+        create = false;
+        Move = true;
+    }
+    int i = 0;
+    public void MoveCharacter()
+    {
+        if (Vector2.Distance(Ball.transform.localPosition, WayPointParent.transform.GetChild(i).transform.localPosition) < 0.1)
+        {
+            if (i < WayPointParent.transform.childCount - 1)
+            {
+                i++;
+            }
+            else
+            {
+                Ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                currentLine.GetComponent<EdgeCollider2D>().enabled = false;
+                Move = false;
+                return;
+            }
+        }
+        Ball.transform.localPosition = Vector2.MoveTowards(Ball.transform.position,
+                WayPointParent.transform.GetChild(i).transform.localPosition, 0.05f);
     }
 }
