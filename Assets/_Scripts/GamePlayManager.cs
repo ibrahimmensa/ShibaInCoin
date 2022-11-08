@@ -205,6 +205,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     public void Skip()
@@ -229,7 +230,7 @@ public class GamePlayManager : MonoBehaviour
         P_BlackScreen.SetActive(false);
         if(level == 1)
         {
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 25);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 20);
             P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
 
         }
