@@ -194,6 +194,11 @@ public class GamePlayManager : MonoBehaviour
         if(levelCom)
         {
             Debug.Log("LevelComplete Home");
+
+            if (level == 15)
+            {
+                PlayerPrefs.SetInt("Level", -1);
+            }
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
             levelCom = false;
         }
@@ -215,15 +220,16 @@ public class GamePlayManager : MonoBehaviour
     }
     public void NextLevel()
     {
+
+        if (level == 15)
+        {
+            PlayerPrefs.SetInt("Level", -1);
+        }
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
         SceneManager.LoadScene(1);
     }
     IEnumerator LevelCompleted()
     {
-        if (level == 10)
-        {
-            PlayerPrefs.SetInt("Level", -1);
-        }
         P_BlackScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         P_Levelcomplete.SetActive(true);
@@ -238,10 +244,7 @@ public class GamePlayManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5);
             P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
-            if(level == 10)
-            {
-                PlayerPrefs.SetInt("Level", 0);
-            }
+           
         }
         yield return null;
         StopCoroutine(LevelCompleted());

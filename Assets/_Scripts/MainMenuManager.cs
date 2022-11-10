@@ -80,6 +80,10 @@ public class MainMenuManager : MonoBehaviour
     {
         CoinsTxt.text = PlayerPrefs.GetInt("Coins").ToString();
     }
+    public void Privacy()
+    {
+        Application.OpenURL("https://mensaplay.com/wensa/privacy-policy.html");
+    }
     public void VibrationOn()
     {
         PlayerPrefs.SetInt("Vibrate", 1);
