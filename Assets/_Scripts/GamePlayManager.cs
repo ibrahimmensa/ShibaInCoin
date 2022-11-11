@@ -42,9 +42,9 @@ public class GamePlayManager : MonoBehaviour
         instance = this;
 
         //select shiba
-        if (PlayerPrefs.HasKey("Player"))
+        if (PlayerPrefs.HasKey("Shiba"))
         {
-            Player = PlayerObj.transform.GetChild(PlayerPrefs.GetInt("Player")).gameObject;
+            Player = PlayerObj.transform.GetChild(PlayerPrefs.GetInt("Shiba")).gameObject;
             Player.SetActive(true);
             Ball = Player;
         }
@@ -119,6 +119,10 @@ public class GamePlayManager : MonoBehaviour
         Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
         level = PlayerPrefs.GetInt("Level") + 1;
         Leveltxt.text = "Level "+"- "+ level;
+        if(GoogleMobileAdsDemoScript.instance)
+        {
+            GoogleMobileAdsDemoScript.instance.showBottomAd();
+        }
     }
 
     // Update is called once per frame
@@ -128,7 +132,6 @@ public class GamePlayManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("pointer");
                 Vector2 RC_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(RC_Pos, Vector2.zero);
                 if (hit)
@@ -141,10 +144,23 @@ public class GamePlayManager : MonoBehaviour
             }
             if (Input.GetMouseButton(0) && startDraw)
             {
+                Vector2 RC_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(RC_Pos, Vector2.zero);
+                if (hit)
+                {
+                    Debug.Log(hit.transform.name);
+                    if (hit.transform.gameObject.CompareTag("Ground"))
+                    {
+                        StoplineCreated = true;
+                    }
+                }
                 Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > 0.1f)
                 {
-                    UpdateLine(tempFingerPos);
+                    if (!StoplineCreated)
+                    {
+                        UpdateLine(tempFingerPos);
+                    }
                 }
             }
             else
@@ -267,7 +283,7 @@ public class GamePlayManager : MonoBehaviour
     public GameObject currentLine;
 
     public LineRenderer lineRenderer;
-    public EdgeCollider2D EdgeCollider2D;
+    //public EdgeCollider2D EdgeCollider2D;
     public List<Vector2> fingerPositions;
 
     //myCode
@@ -277,6 +293,7 @@ public class GamePlayManager : MonoBehaviour
     public bool create;
     public bool Move;
     public bool lineCreated;
+    public bool StoplineCreated;
     public bool startDraw;
 
     void CreateLine()
@@ -284,20 +301,22 @@ public class GamePlayManager : MonoBehaviour
         startDraw = true;
         currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
-        EdgeCollider2D = currentLine.GetComponent<EdgeCollider2D>();
+        //EdgeCollider2D = currentLine.GetComponent<EdgeCollider2D>();
         fingerPositions.Clear();
         fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         lineRenderer.SetPosition(0, fingerPositions[0]);
         lineRenderer.SetPosition(1, fingerPositions[1]);
-        EdgeCollider2D.points = fingerPositions.ToArray();
+        //EdgeCollider2D.points = fingerPositions.ToArray();
     }
     void UpdateLine(Vector2 newFingerPos)
     {
         fingerPositions.Add(newFingerPos);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newFingerPos);
-        EdgeCollider2D.points = fingerPositions.ToArray();
+        //EdgeCollider2D.points = fingerPositions.ToArray();
+
+        
     }
     public void GenerateWayPoints()
     {

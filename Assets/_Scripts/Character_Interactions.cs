@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Character_Interactions : MonoBehaviour
 {
-    int Life = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,6 @@ public class Character_Interactions : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-        Debug.Log("collision detacted");
         if (collision.gameObject.CompareTag("Basket"))
         {
             if (PlayerPrefs.GetInt("Vibrate") == 1)
@@ -52,15 +51,15 @@ public class Character_Interactions : MonoBehaviour
     IEnumerator Retry()
     {
         yield return new WaitForSeconds(2.0f); 
-        if (Life > 0)
+        if (GoogleMobileAdsDemoScript.instance.Life > 0)
         {
-            Life--;
+            GoogleMobileAdsDemoScript.instance.Life--;
             SceneManager.LoadScene(1);
         }
         else
         {
             GamePlayManager.instance.levelFail();
-            Life = 2;
+            GoogleMobileAdsDemoScript.instance.Life = 2;
         }
         yield return null;
     }

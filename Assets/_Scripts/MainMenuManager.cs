@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("Coins", 0);
+            PlayerPrefs.SetInt("Coins", 2000);
             TotalCoins = PlayerPrefs.GetInt("Coins");
             CoinsTxt.text = TotalCoins.ToString();
         }
