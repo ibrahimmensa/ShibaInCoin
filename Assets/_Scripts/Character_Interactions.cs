@@ -51,15 +51,22 @@ public class Character_Interactions : MonoBehaviour
     IEnumerator Retry()
     {
         yield return new WaitForSeconds(2.0f); 
-        if (GoogleMobileAdsDemoScript.instance.Life > 0)
+        if(GoogleMobileAdsDemoScript.instance)
         {
-            GoogleMobileAdsDemoScript.instance.Life--;
-            SceneManager.LoadScene(1);
+            if (GoogleMobileAdsDemoScript.instance.Life > 0)
+            {
+                GoogleMobileAdsDemoScript.instance.Life--;
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                GamePlayManager.instance.levelFail();
+                GoogleMobileAdsDemoScript.instance.Life = 2;
+            }
         }
         else
         {
             GamePlayManager.instance.levelFail();
-            GoogleMobileAdsDemoScript.instance.Life = 2;
         }
         yield return null;
     }
