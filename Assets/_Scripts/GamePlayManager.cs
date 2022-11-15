@@ -20,6 +20,7 @@ public class GamePlayManager : MonoBehaviour
     int level;
     bool levelCom;
     public Text Leveltxt;
+    public Text dubbleScore;
     public GameObject LevelsManagr;
     public GameObject LevelPosition;
 
@@ -40,7 +41,6 @@ public class GamePlayManager : MonoBehaviour
     void Start()
     {
         instance = this;
-
         //select shiba
         if (PlayerPrefs.HasKey("Shiba"))
         {
@@ -58,7 +58,7 @@ public class GamePlayManager : MonoBehaviour
         //OPen saved level or start with level 1
         if (PlayerPrefs.HasKey("Level"))
         {
-            if(PlayerPrefs.GetInt("Level") > 11)
+            if(PlayerPrefs.GetInt("Level") > 15)
             {
                 PlayerPrefs.SetInt("Level", 0);
             }
@@ -119,14 +119,18 @@ public class GamePlayManager : MonoBehaviour
         Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
         level = PlayerPrefs.GetInt("Level") + 1;
         Leveltxt.text = "Level "+"- "+ level;
-        if(GoogleMobileAdsDemoScript.instance)
-        {
-            GoogleMobileAdsDemoScript.instance.showBottomAd();
-        }
+        //if(GoogleMobileAdsDemoScript.instance)
+        //{
+        //    GoogleMobileAdsDemoScript.instance.showBottomAd();
+        //}
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    private void FixedUpdate()
     {
         if (!lineCreated)
         {
@@ -148,11 +152,12 @@ public class GamePlayManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(RC_Pos, Vector2.zero);
                 if (hit)
                 {
-                    Debug.Log(hit.transform.name);
+                    //Debug.Log(hit.transform.name);
                     if (hit.transform.gameObject.CompareTag("Ground"))
                     {
                         StoplineCreated = true;
                     }
+                    //RopeStoper
                 }
                 Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > 0.1f)
@@ -174,6 +179,7 @@ public class GamePlayManager : MonoBehaviour
         }
         if (Move)
         {
+            //Ball.GetComponent<Rigidbody2D>().simulated = false;
             MoveCharacter();
         }
     }
@@ -190,6 +196,10 @@ public class GamePlayManager : MonoBehaviour
     }
     public void levelComplete()
     {
+        if(GoogleAdsManager.Instance)
+        {
+            GoogleAdsManager.Instance.showInterstitial();
+        }
         levelCom = true;
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
@@ -244,24 +254,30 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
         SceneManager.LoadScene(1);
     }
+    int totl;
     IEnumerator LevelCompleted()
     {
         P_BlackScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         P_Levelcomplete.SetActive(true);
         P_BlackScreen.SetActive(false);
-        if(level == 1)
-        {
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 20);
-            P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
+        totl = 20 + 5 * (PlayerPrefs.GetInt("Level") + 1);
+        dubbleScore.text = totl.ToString(); 
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins")+totl);
+        P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
+        Debug.Log("score is:" + PlayerPrefs.GetInt("Coins"));
+        //if (level == 1)
+        //{
+        //    PlayerPrefs.SetInt("Coins", 20 +  ( PlayerPrefs.GetInt("Level")*5));
+        //    P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
 
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5);
-            P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
+        //}
+        //else
+        //{
+        //    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5);
+        //    P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
            
-        }
+        //}
         yield return null;
         StopCoroutine(LevelCompleted());
     }
@@ -336,16 +352,20 @@ public class GamePlayManager : MonoBehaviour
             if (i < WayPointParent.transform.childCount - 1)
             {
                 i++;
+
+                //Debug.Log("Android , Moving to point :"+i);
             }
             else
             {
                 Ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                // Debug.Log("Android , Movement Eneded");
+                //Ball.GetComponent<Rigidbody2D>().simulated = true;
                 currentLine.GetComponent<EdgeCollider2D>().enabled = false;
                 Move = false;
                 return;
             }
         }
         Ball.transform.localPosition = Vector2.MoveTowards(Ball.transform.position,
-                WayPointParent.transform.GetChild(i).transform.localPosition, 0.05f);
+                WayPointParent.transform.GetChild(i).transform.localPosition, 0.05f * Time.timeScale);
     }
 }

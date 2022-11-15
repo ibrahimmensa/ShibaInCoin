@@ -8,6 +8,8 @@ TagManager:
   - Basket
   - Hurdle
   - Ground
+  - RopeStoper
+  - Ads
   layers:
   - Default
   - TransparentFX
