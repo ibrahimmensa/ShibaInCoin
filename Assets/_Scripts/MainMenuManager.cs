@@ -20,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        GoogleAds.Instance.RequestBanner();
         if(PlayerPrefs.HasKey("Coins"))
         {
             TotalCoins = PlayerPrefs.GetInt("Coins");

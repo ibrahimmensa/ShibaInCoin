@@ -38,6 +38,11 @@ public class GamePlayManager : MonoBehaviour
     {
         
     }
+
+    private void OnEnable()
+    {
+        //GoogleAds.Instance.RequestInterstitial();
+    }
     void Start()
     {
         instance = this;
@@ -196,10 +201,8 @@ public class GamePlayManager : MonoBehaviour
     }
     public void levelComplete()
     {
-        if(GoogleAdsManager.Instance)
-        {
-            GoogleAdsManager.Instance.showInterstitial();
-        }
+        AdsInitializer.Instance.ShowAdInterstitial();
+        //GoogleAds.Instance.showInterstitial();
         levelCom = true;
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
@@ -209,6 +212,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void levelFail()
     {
+        AdsInitializer.Instance.ShowAdInterstitial();
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
             S_Failed.Play();
@@ -217,7 +221,8 @@ public class GamePlayManager : MonoBehaviour
     }
     public void Home()
     {
-        if(levelCom)
+        AdsInitializer.Instance.ShowAdInterstitial();
+        if (levelCom)
         {
             Debug.Log("LevelComplete Home");
 
