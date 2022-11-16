@@ -15,4 +15,5 @@ public class CharacterDetails
     public int AdsToWatch_ToUnlock;
     public int AdsWatched;
     public int NeedCoins_ToUnlock;
+    public bool isSelected = false;
 }

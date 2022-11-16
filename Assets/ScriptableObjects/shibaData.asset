@@ -20,6 +20,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 0
     AdsWatched: 0
     NeedCoins_ToUnlock: 0
+    isSelected: 1
   - Character_Name: shiba2
     CanUnlockByAds: 1
     ComingSoon: 0
@@ -27,6 +28,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 2
     AdsWatched: 0
     NeedCoins_ToUnlock: 100
+    isSelected: 0
   - Character_Name: shiba3
     CanUnlockByAds: 1
     ComingSoon: 0
@@ -34,6 +36,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 3
     AdsWatched: 0
     NeedCoins_ToUnlock: 200
+    isSelected: 0
   - Character_Name: shiba4
     CanUnlockByAds: 1
     ComingSoon: 0
@@ -41,6 +44,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 4
     AdsWatched: 0
     NeedCoins_ToUnlock: 300
+    isSelected: 0
   - Character_Name: shiba5
     CanUnlockByAds: 1
     ComingSoon: 0
@@ -48,6 +52,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 5
     AdsWatched: 0
     NeedCoins_ToUnlock: 400
+    isSelected: 0
   - Character_Name: shiba6
     CanUnlockByAds: 1
     ComingSoon: 0
@@ -55,6 +60,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 6
     AdsWatched: 0
     NeedCoins_ToUnlock: 500
+    isSelected: 0
   - Character_Name: shiba7
     CanUnlockByAds: 0
     ComingSoon: 1
@@ -62,6 +68,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 7
     AdsWatched: 0
     NeedCoins_ToUnlock: 600
+    isSelected: 0
   - Character_Name: shiba8
     CanUnlockByAds: 0
     ComingSoon: 1
@@ -69,6 +76,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 8
     AdsWatched: 0
     NeedCoins_ToUnlock: 700
+    isSelected: 0
   - Character_Name: shiba9
     CanUnlockByAds: 0
     ComingSoon: 1
@@ -76,6 +84,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 9
     AdsWatched: 0
     NeedCoins_ToUnlock: 800
+    isSelected: 0
   - Character_Name: shiba10
     CanUnlockByAds: 0
     ComingSoon: 1
@@ -83,6 +92,7 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 10
     AdsWatched: 0
     NeedCoins_ToUnlock: 900
+    isSelected: 0
   - Character_Name: shiba11
     CanUnlockByAds: 0
     ComingSoon: 1
@@ -90,3 +100,4 @@ MonoBehaviour:
     AdsToWatch_ToUnlock: 11
     AdsWatched: 0
     NeedCoins_ToUnlock: 1000
+    isSelected: 0

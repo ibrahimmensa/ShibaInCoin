@@ -13,6 +13,10 @@ public class StoreManager : MonoBehaviour
     public Text Cointxt;
     public GameObject contant;
     public Image[] SelectedShiba;
+    public bool dataMapped = false;
+    public Button adsBtn, PlayBtn, UnlockBtn;
+    public Text adsCount_ToUnlock;
+    public CharacterPrefabData previous, Current;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,13 @@ public class StoreManager : MonoBehaviour
         print(bttnDistance);
     }
 
+    private void OnEnable()
+    {
+        minButtonNum = 0;
+        mapCharacterData();
+        Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -57,12 +68,45 @@ public class StoreManager : MonoBehaviour
         if(!draging)
         {
             LerpToButton(minButtonNum * -bttnDistance);
+            if (!dataMapped)
+            {
+                mapCharacterData();
+            }
         }
 
         //if(!shibaData.CD[minButtonNum].IsLocked)
         //{
         //    LockCover.SetActive(false);
         //}
+    }
+
+    public void mapCharacterData()
+    {
+        dataMapped = true;
+        CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
+
+        if (temp.IsLocked)
+        {
+            adsCount_ToUnlock.text = temp.AdsWatched.ToString()+"/"+temp.AdsToWatch_ToUnlock.ToString();
+            adsBtn.gameObject.SetActive(true);
+            UnlockBtn.gameObject.SetActive(true);
+            PlayBtn.gameObject.SetActive(false);
+        }
+        else
+        {
+            adsBtn.gameObject.SetActive(false);
+            UnlockBtn.gameObject.SetActive(false);
+            PlayBtn.gameObject.SetActive(true);
+            bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
+            if (temp.isSelected)
+            {
+                bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().SelectCharacter();
+            }
+            else
+            {
+                bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
+            }
+        }
     }
 
     public void unlockShiba(int num)
@@ -83,15 +127,19 @@ public class StoreManager : MonoBehaviour
     }
     public void selectShiba(int ShibaNum)
     {
+        previous = Current;
+        Current = bttn[ShibaNum].gameObject.GetComponent<CharacterPrefabData>();
+        previous.unselectCharacter();
+        Current.SelectCharacter();
         PlayerPrefs.SetInt("Shiba", ShibaNum);
-        foreach(Image img in SelectedShiba)
-        {
-            img.color = new Color32(255, 255, 255, 255);
-            Debug.Log("color Changed");
-        }
+        //foreach(Image img in SelectedShiba)
+        //{
+        //    img.color = new Color32(255, 255, 255, 255);
+        //    Debug.Log("color Changed");
+        //}
 
         Debug.Log("chosing the selected color");
-        SelectedShiba[ShibaNum].color = new Color32(103, 221, 68, 255);
+        //SelectedShiba[ShibaNum].color = new Color32(103, 221, 68, 255);
         Debug.Log("selected color chnaged");
     }
 
@@ -101,7 +149,7 @@ public class StoreManager : MonoBehaviour
     public GameObject[] bttn;
     public RectTransform center;
 
-    private float[] distance;
+    public float[] distance;
     private bool draging = false;
     private int bttnDistance;
     private int minButtonNum;
@@ -118,6 +166,7 @@ public class StoreManager : MonoBehaviour
     public void StartDrage()
     {
         draging = true;
+        dataMapped = false;
     }
     public void EndDrage()
     {
