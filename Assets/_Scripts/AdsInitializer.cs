@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum RewardedAdType
 {
     FREECOINS,
     REVIVE,
     FREECHARACTER,
-    DOUBLEREWARD
+    DOUBLEREWARD,
+    SKIPLEVEL
 }
 
 public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
@@ -23,8 +25,12 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
     public RewardedAdType currentAdType;
     string _adUnitId = null; // This will remain null for unsupported platforms
     string _adUnitIdInterstitial = null;
-    void Awake()
+    public override void  Awake()
     {
+        if(AdsInitializer.Instance  != this)
+        {
+            Destroy(gameObject);
+        }
         Debug.Log("Initializing");
         DontDestroyOnLoad(this);
         InitializeAds();
@@ -113,7 +119,19 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
             Advertisement.Load(_adUnitId, this);
             switch (currentAdType)
             {
-                
+                case RewardedAdType.FREECOINS:
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 15);
+                    break;
+                case RewardedAdType.DOUBLEREWARD:
+                    GamePlayManager.instance.totl = GamePlayManager.instance.totl * 2;
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + GamePlayManager.instance.totl);
+                    GamePlayManager.instance.dubbleScore.text = GamePlayManager.instance.totl.ToString();
+                    GamePlayManager.instance.P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
+                    break;
+                case RewardedAdType.SKIPLEVEL:
+                    PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+                    SceneManager.LoadScene(1);
+                    break;
             }
         }
         else

@@ -33,7 +33,7 @@ public class MainScreen : MonoBehaviour
     }
     public void FreeCoins()
     {
-
+        AdsInitializer.Instance.ShowAd(RewardedAdType.FREECOINS);
     }
     public void RemoveAds()
     {

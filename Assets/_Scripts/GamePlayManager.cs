@@ -201,7 +201,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void levelComplete()
     {
-        AdsInitializer.Instance.ShowAdInterstitial();
+        //AdsInitializer.Instance.ShowAdInterstitial();
         //GoogleAds.Instance.showInterstitial();
         levelCom = true;
         if (PlayerPrefs.GetInt("Sound") == 1)
@@ -212,7 +212,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void levelFail()
     {
-        AdsInitializer.Instance.ShowAdInterstitial();
+        //AdsInitializer.Instance.ShowAdInterstitial();
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
             S_Failed.Play();
@@ -244,11 +244,6 @@ public class GamePlayManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
-    public void Skip()
-    {
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-        SceneManager.LoadScene(1);
-    }
     public void NextLevel()
     {
 
@@ -259,7 +254,7 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
         SceneManager.LoadScene(1);
     }
-    int totl;
+    public int totl;
     IEnumerator LevelCompleted()
     {
         P_BlackScreen.SetActive(true);
@@ -271,18 +266,6 @@ public class GamePlayManager : MonoBehaviour
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins")+totl);
         P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
         Debug.Log("score is:" + PlayerPrefs.GetInt("Coins"));
-        //if (level == 1)
-        //{
-        //    PlayerPrefs.SetInt("Coins", 20 +  ( PlayerPrefs.GetInt("Level")*5));
-        //    P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
-
-        //}
-        //else
-        //{
-        //    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5);
-        //    P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
-           
-        //}
         yield return null;
         StopCoroutine(LevelCompleted());
     }
@@ -372,5 +355,17 @@ public class GamePlayManager : MonoBehaviour
         }
         Ball.transform.localPosition = Vector2.MoveTowards(Ball.transform.position,
                 WayPointParent.transform.GetChild(i).transform.localPosition, 0.05f * Time.timeScale);
+    }
+    public void freeCoins()
+    {
+        AdsInitializer.Instance.ShowAd(RewardedAdType.FREECOINS);
+    }
+    public void DubbleReeard()
+    {
+        AdsInitializer.Instance.ShowAd(RewardedAdType.DOUBLEREWARD);
+    }
+    public void skipLevel()
+    {
+        AdsInitializer.Instance.ShowAd(RewardedAdType.SKIPLEVEL);
     }
 }

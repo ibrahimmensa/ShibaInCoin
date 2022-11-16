@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour
 {
+    public CHaracterInfo shibaData;
     public GameObject[] ShibaLocker;
     public int[] ShibaPrices;
     public GameObject CoinWarning;
@@ -27,12 +28,41 @@ public class StoreManager : MonoBehaviour
         {
             SelectedShiba[i] = contant.transform.GetChild(i).GetComponent<Image>();
         }
+
+        // span scroll view
+        int bttnLenth = bttn.Length;
+        distance = new float[bttnLenth];
+
+        bttnDistance = (int)Mathf.Abs(bttn[1].GetComponent<RectTransform>().anchoredPosition.x - bttn[0].GetComponent<RectTransform>().anchoredPosition.x);
+        print(bttnDistance);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // span scroll view
+        for(int i=0; i<bttn.Length;i++)
+        {
+            distance[i] = Mathf.Abs(center.transform.position.x - bttn[i].transform.position.x);
+            print(distance);
+        }
+        float MinDistance = Mathf.Min(distance);
+        for(int a=0; a<bttn.Length; a++)
+        {
+            if(MinDistance == distance[a])
+            {
+                minButtonNum = a;
+            }
+        }
+        if(!draging)
+        {
+            LerpToButton(minButtonNum * -bttnDistance);
+        }
+
+        //if(!shibaData.CD[minButtonNum].IsLocked)
+        //{
+        //    LockCover.SetActive(false);
+        //}
     }
 
     public void unlockShiba(int num)
@@ -63,5 +93,34 @@ public class StoreManager : MonoBehaviour
         Debug.Log("chosing the selected color");
         SelectedShiba[ShibaNum].color = new Color32(103, 221, 68, 255);
         Debug.Log("selected color chnaged");
+    }
+
+
+    [Header("Span Scroll view")]
+    public RectTransform panel;
+    public GameObject[] bttn;
+    public RectTransform center;
+
+    private float[] distance;
+    private bool draging = false;
+    private int bttnDistance;
+    private int minButtonNum;
+
+    //shiba properties
+    public Text AdsCount;
+    public GameObject LockCover;
+    void LerpToButton( int position)
+    {
+        float newX = Mathf.Lerp(panel.anchoredPosition.x, position, Time.deltaTime * 10f);
+        Vector2 newPosition = new Vector2(newX, panel.anchoredPosition.y);
+        panel.anchoredPosition = newPosition;
+    }
+    public void StartDrage()
+    {
+        draging = true;
+    }
+    public void EndDrage()
+    {
+        draging = false;
     }
 }

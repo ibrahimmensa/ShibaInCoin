@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf02385f13bc8a4989378ca4a7ba036, type: 3}
+  m_Name: shibaData
+  m_EditorClassIdentifier: 
+  CD:
+  - Character_Name: shiba1
+    CanUnlockByAds: 0
+    ComingSoon: 0
+    IsLocked: 0
+    AdsToWatch_ToUnlock: 0
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 0
+  - Character_Name: shiba2
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 2
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 100
+  - Character_Name: shiba3
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 3
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 200
+  - Character_Name: shiba4
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 4
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 300
+  - Character_Name: shiba5
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 5
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 400
+  - Character_Name: shiba6
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 6
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 500
+  - Character_Name: shiba7
+    CanUnlockByAds: 0
+    ComingSoon: 1
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 7
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 600
+  - Character_Name: shiba8
+    CanUnlockByAds: 0
+    ComingSoon: 1
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 8
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 700
+  - Character_Name: shiba9
+    CanUnlockByAds: 0
+    ComingSoon: 1
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 9
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 800
+  - Character_Name: shiba10
+    CanUnlockByAds: 0
+    ComingSoon: 1
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 10
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 900
+  - Character_Name: shiba11
+    CanUnlockByAds: 0
+    ComingSoon: 1
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 11
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 1000
