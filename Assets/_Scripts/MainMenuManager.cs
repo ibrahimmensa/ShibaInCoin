@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour
     public int TotalCoins;
     public Text CoinsTxt;
     public static MainMenuManager instance;
-
+    public StoreManager StoreManager;
     //sound and music
     public GameObject Sound;
     public GameObject BG_Music;
@@ -108,5 +108,13 @@ public class MainMenuManager : MonoBehaviour
     public void MusicOFF()
     {
         PlayerPrefs.SetInt("Music", 0);
+    }
+    public void adsToUnlockShiba()
+    {
+        AdsInitializer.Instance.ShowAd(RewardedAdType.UNLOCKSHIBA);
+    }
+    public void freecoins()
+    {
+        AdsInitializer.Instance.ShowAd(RewardedAdType.FREECOINS);
     }
 }

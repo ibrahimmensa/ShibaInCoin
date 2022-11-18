@@ -7023,6 +7023,7 @@ MonoBehaviour:
   dubbleScore: {fileID: 325857910}
   LevelsManagr: {fileID: 2377510}
   LevelPosition: {fileID: 1533831646}
+  DubbleReward: {fileID: 1079386690}
   Cointxt: {fileID: 1545429709}
   Sound: {fileID: 1115558895}
   BG_Music: {fileID: 1728496083}

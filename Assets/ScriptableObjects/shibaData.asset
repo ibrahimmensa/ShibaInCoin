@@ -21,83 +21,94 @@ MonoBehaviour:
     AdsWatched: 0
     NeedCoins_ToUnlock: 0
     isSelected: 1
+    CHaracterImg: {fileID: 21300000, guid: affeada13a54029498f6ad11d48660d2, type: 3}
   - Character_Name: shiba2
+    CanUnlockByAds: 1
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 1
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 100
+    isSelected: 0
+    CHaracterImg: {fileID: 21300000, guid: 21800fff4ab007c428d5091abebdd213, type: 3}
+  - Character_Name: shiba3
     CanUnlockByAds: 1
     ComingSoon: 0
     IsLocked: 1
     AdsToWatch_ToUnlock: 2
     AdsWatched: 0
-    NeedCoins_ToUnlock: 100
+    NeedCoins_ToUnlock: 200
     isSelected: 0
-  - Character_Name: shiba3
+    CHaracterImg: {fileID: 21300000, guid: 9aeb0ae0d2376aa4486c7b28ee76bed2, type: 3}
+  - Character_Name: shiba4
     CanUnlockByAds: 1
     ComingSoon: 0
     IsLocked: 1
     AdsToWatch_ToUnlock: 3
     AdsWatched: 0
-    NeedCoins_ToUnlock: 200
+    NeedCoins_ToUnlock: 300
     isSelected: 0
-  - Character_Name: shiba4
+    CHaracterImg: {fileID: 21300000, guid: 8fc9771fc869b64449c14886f6a41921, type: 3}
+  - Character_Name: shiba5
     CanUnlockByAds: 1
     ComingSoon: 0
     IsLocked: 1
     AdsToWatch_ToUnlock: 4
     AdsWatched: 0
-    NeedCoins_ToUnlock: 300
+    NeedCoins_ToUnlock: 400
     isSelected: 0
-  - Character_Name: shiba5
+    CHaracterImg: {fileID: 21300000, guid: dd0f7f22675ddba4ca712c0712292586, type: 3}
+  - Character_Name: shiba6
     CanUnlockByAds: 1
     ComingSoon: 0
     IsLocked: 1
     AdsToWatch_ToUnlock: 5
     AdsWatched: 0
-    NeedCoins_ToUnlock: 400
+    NeedCoins_ToUnlock: 500
     isSelected: 0
-  - Character_Name: shiba6
-    CanUnlockByAds: 1
+    CHaracterImg: {fileID: 21300000, guid: e135b1f88b4948e4fbaabf9dcf8d237b, type: 3}
+  - Character_Name: shiba7
+    CanUnlockByAds: 0
     ComingSoon: 0
     IsLocked: 1
     AdsToWatch_ToUnlock: 6
     AdsWatched: 0
-    NeedCoins_ToUnlock: 500
+    NeedCoins_ToUnlock: 600
     isSelected: 0
-  - Character_Name: shiba7
+    CHaracterImg: {fileID: 21300000, guid: a2b8bece109cdc64d966d8ba4e5694fe, type: 3}
+  - Character_Name: shiba8
     CanUnlockByAds: 0
     ComingSoon: 1
     IsLocked: 1
     AdsToWatch_ToUnlock: 7
     AdsWatched: 0
-    NeedCoins_ToUnlock: 600
+    NeedCoins_ToUnlock: 700
     isSelected: 0
-  - Character_Name: shiba8
+    CHaracterImg: {fileID: 0}
+  - Character_Name: shiba9
     CanUnlockByAds: 0
     ComingSoon: 1
     IsLocked: 1
     AdsToWatch_ToUnlock: 8
     AdsWatched: 0
-    NeedCoins_ToUnlock: 700
+    NeedCoins_ToUnlock: 800
     isSelected: 0
-  - Character_Name: shiba9
+    CHaracterImg: {fileID: 0}
+  - Character_Name: shiba10
     CanUnlockByAds: 0
     ComingSoon: 1
     IsLocked: 1
     AdsToWatch_ToUnlock: 9
     AdsWatched: 0
-    NeedCoins_ToUnlock: 800
-    isSelected: 0
-  - Character_Name: shiba10
-    CanUnlockByAds: 0
-    ComingSoon: 1
-    IsLocked: 1
-    AdsToWatch_ToUnlock: 10
-    AdsWatched: 0
     NeedCoins_ToUnlock: 900
     isSelected: 0
+    CHaracterImg: {fileID: 0}
   - Character_Name: shiba11
     CanUnlockByAds: 0
     ComingSoon: 1
     IsLocked: 1
     AdsToWatch_ToUnlock: 11
-    AdsWatched: 0
+    AdsWatched: 10
     NeedCoins_ToUnlock: 1000
     isSelected: 0
+    CHaracterImg: {fileID: 0}

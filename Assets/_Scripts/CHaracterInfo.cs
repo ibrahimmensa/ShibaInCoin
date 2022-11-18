@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
 public class CHaracterInfo : ScriptableObject
 {
@@ -16,4 +18,5 @@ public class CharacterDetails
     public int AdsWatched;
     public int NeedCoins_ToUnlock;
     public bool isSelected = false;
+    public Sprite CHaracterImg;
 }

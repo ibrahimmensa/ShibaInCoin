@@ -23,6 +23,7 @@ public class GamePlayManager : MonoBehaviour
     public Text dubbleScore;
     public GameObject LevelsManagr;
     public GameObject LevelPosition;
+    public Button DubbleReward;
 
     //coins
     public Text Cointxt;
@@ -263,7 +264,14 @@ public class GamePlayManager : MonoBehaviour
         P_BlackScreen.SetActive(false);
         totl = 20 + 5 * (PlayerPrefs.GetInt("Level") + 1);
         dubbleScore.text = totl.ToString(); 
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins")+totl);
+        if(PlayerPrefs.GetInt("Level") == 0 && PlayerPrefs.GetInt("Coins") == 0)
+        {
+            PlayerPrefs.SetInt("Coins", totl);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + totl);
+        }
         P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
         Debug.Log("score is:" + PlayerPrefs.GetInt("Coins"));
         yield return null;

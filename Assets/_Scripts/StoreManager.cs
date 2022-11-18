@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour
 {
     public CHaracterInfo shibaData;
-    public GameObject[] ShibaLocker;
-    public int[] ShibaPrices;
     public GameObject CoinWarning;
     //coins
     public Text Cointxt;
@@ -20,19 +18,12 @@ public class StoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
-        if(PlayerPrefs.HasKey("ShibaLock"))
-        {
-            for(int sh=0; sh< PlayerPrefs.GetInt("ShibaLock"); sh++)
-            {
-                ShibaLocker[sh].SetActive(false);
-            }
-        }
-        for (int i = 0; i < contant.transform.childCount; i++)
-        {
-            SelectedShiba[i] = contant.transform.GetChild(i).GetComponent<Image>();
-        }
+        minButtonNum = 0;
+        mapCharacterData();
+        Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
 
+        Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
+        
         // span scroll view
         int bttnLenth = bttn.Length;
         distance = new float[bttnLenth];
@@ -43,9 +34,6 @@ public class StoreManager : MonoBehaviour
 
     private void OnEnable()
     {
-        minButtonNum = 0;
-        mapCharacterData();
-        Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
     }
 
     // Update is called once per frame
@@ -74,6 +62,7 @@ public class StoreManager : MonoBehaviour
             }
         }
 
+        Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
         //if(!shibaData.CD[minButtonNum].IsLocked)
         //{
         //    LockCover.SetActive(false);
@@ -84,11 +73,14 @@ public class StoreManager : MonoBehaviour
     {
         dataMapped = true;
         CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
-
         if (temp.IsLocked)
         {
             adsCount_ToUnlock.text = temp.AdsWatched.ToString()+"/"+temp.AdsToWatch_ToUnlock.ToString();
             adsBtn.gameObject.SetActive(true);
+
+            if (temp.AdsToWatch_ToUnlock == temp.AdsWatched) adsBtn.interactable = false;
+            else adsBtn.interactable = true;
+
             UnlockBtn.gameObject.SetActive(true);
             PlayBtn.gameObject.SetActive(false);
         }
@@ -98,49 +90,83 @@ public class StoreManager : MonoBehaviour
             UnlockBtn.gameObject.SetActive(false);
             PlayBtn.gameObject.SetActive(true);
             bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
-            if (temp.isSelected)
-            {
-                bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().SelectCharacter();
-            }
-            else
-            {
-                bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
-            }
+            //if (temp.isSelected)
+            //{
+            //    bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().SelectCharacter();
+            //}
+            //else
+            //{
+            //    bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
+            //}
+        }
+        if(temp.ComingSoon)
+        {
+            adsBtn.gameObject.SetActive(false);
+            UnlockBtn.gameObject.SetActive(false);
+        }
+
+    }
+    public void UnlockShibaWithAds()
+    {
+        CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
+        temp.AdsWatched++;
+        adsCount_ToUnlock.text = temp.AdsWatched.ToString() + "/" + temp.AdsToWatch_ToUnlock.ToString();
+        if (temp.AdsToWatch_ToUnlock == temp.AdsWatched)
+        {
+            adsBtn.interactable = false;
         }
     }
-
-    public void unlockShiba(int num)
+    public void unlockShiba()
     {
-        if(PlayerPrefs.GetInt("Coins") > ShibaPrices[num-1])
+        CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
+        if (temp.AdsToWatch_ToUnlock == temp.AdsWatched)
         {
-            PlayerPrefs.SetInt("Player", num);
-            ShibaLocker[PlayerPrefs.GetInt("Player")-1].SetActive(false);
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - ShibaPrices[num-1]);
+            adsBtn.gameObject.SetActive(false);
+            UnlockBtn.gameObject.SetActive(false);
+            PlayBtn.gameObject.SetActive(true);
+            bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
+            temp.IsLocked = false;
+            //previous.UpdateSelectedBool();
+            temp.isSelected = true;
+            selectShiba();
+            PlayerPrefs.SetInt("Player", minButtonNum);
+        }
+        else if(PlayerPrefs.GetInt("Coins") > temp.NeedCoins_ToUnlock)
+        {
+            adsBtn.gameObject.SetActive(false);
+            UnlockBtn.gameObject.SetActive(false);
+            PlayBtn.gameObject.SetActive(true);
+            bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().UnlockUser();
+            temp.IsLocked = false;
+            //previous.UpdateSelectedBool();
+            temp.isSelected = true;
+            selectShiba();
+            PlayerPrefs.SetInt("Player", minButtonNum);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - temp.NeedCoins_ToUnlock);
             Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
-            PlayerPrefs.SetInt("ShibaLock", num);
-            selectShiba(num);
         }
         else
         {
             CoinWarning.SetActive(true);
         }
     }
-    public void selectShiba(int ShibaNum)
+    public void selectShiba()
     {
         previous = Current;
-        Current = bttn[ShibaNum].gameObject.GetComponent<CharacterPrefabData>();
+        Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
         previous.unselectCharacter();
         Current.SelectCharacter();
-        PlayerPrefs.SetInt("Shiba", ShibaNum);
-        //foreach(Image img in SelectedShiba)
-        //{
-        //    img.color = new Color32(255, 255, 255, 255);
-        //    Debug.Log("color Changed");
-        //}
-
-        Debug.Log("chosing the selected color");
-        //SelectedShiba[ShibaNum].color = new Color32(103, 221, 68, 255);
-        Debug.Log("selected color chnaged");
+        PlayerPrefs.SetInt("Shiba", minButtonNum);
+    } 
+    public void selectShiba(CharacterPrefabData c)
+    {
+        previous = Current;
+        Current = c;
+        previous.temp.isSelected = false;
+        //Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
+        previous.unselectCharacter();
+        Current.SelectCharacter();
+        PlayerPrefs.SetInt("Shiba", minButtonNum);
     }
 
 

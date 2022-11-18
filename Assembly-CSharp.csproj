@@ -60,6 +60,7 @@
     <Compile Include="Assets\_Scripts\GamePlayManager.cs" />
     <Compile Include="Assets\_Scripts\StoreManager.cs" />
     <Compile Include="Assets\_Scripts\Loading.cs" />
+    <Compile Include="Assets\_Scripts\CharacterPrefabData.cs" />
     <Compile Include="Assets\CoinWarning.cs" />
     <Compile Include="Assets\_Scripts\GoogleAds.cs" />
     <Compile Include="Assets\_Scripts\MainScreen.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Assets\TooCubeForest\demoScenes\Movement.cs" />
     <Compile Include="Assets\_Scripts\Object_Movement.cs" />
     <Compile Include="Assets\_Scripts\CHaracterInfo.cs" />
-    <Compile Include="Assets\_Scripts\CharacterPrefabData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Common.dll" />

@@ -7,7 +7,7 @@ public enum RewardedAdType
 {
     FREECOINS,
     REVIVE,
-    FREECHARACTER,
+    UNLOCKSHIBA,
     DOUBLEREWARD,
     SKIPLEVEL
 }
@@ -25,6 +25,7 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
     public RewardedAdType currentAdType;
     string _adUnitId = null; // This will remain null for unsupported platforms
     string _adUnitIdInterstitial = null;
+    public StoreManager storeManager;
     public override void  Awake()
     {
         if(AdsInitializer.Instance  != this)
@@ -124,13 +125,25 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
                     break;
                 case RewardedAdType.DOUBLEREWARD:
                     GamePlayManager.instance.totl = GamePlayManager.instance.totl * 2;
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + GamePlayManager.instance.totl);
+                    if (PlayerPrefs.GetInt("Level") == 0 && PlayerPrefs.GetInt("Coins") == 25)
+                    {
+                        Debug.Log("this is first level");
+                        PlayerPrefs.SetInt("Coins", GamePlayManager.instance.totl);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + GamePlayManager.instance.totl);
+                    }
                     GamePlayManager.instance.dubbleScore.text = GamePlayManager.instance.totl.ToString();
                     GamePlayManager.instance.P_Levelcomplete.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
+                    GamePlayManager.instance.DubbleReward.interactable = false;
                     break;
                 case RewardedAdType.SKIPLEVEL:
                     PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
                     SceneManager.LoadScene(1);
+                    break;
+                case RewardedAdType.UNLOCKSHIBA:
+                    storeManager.UnlockShibaWithAds();
                     break;
             }
         }
