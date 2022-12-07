@@ -46,6 +46,7 @@ public class GamePlayManager : MonoBehaviour
     }
     void Start()
     {
+        
         instance = this;
         //select shiba
         if (PlayerPrefs.HasKey("Shiba"))
@@ -64,7 +65,7 @@ public class GamePlayManager : MonoBehaviour
         //OPen saved level or start with level 1
         if (PlayerPrefs.HasKey("Level"))
         {
-            if(PlayerPrefs.GetInt("Level") > 15)
+            if (PlayerPrefs.GetInt("Level") > LevelsManagr.transform.childCount)
             {
                 PlayerPrefs.SetInt("Level", 0);
             }
@@ -227,7 +228,7 @@ public class GamePlayManager : MonoBehaviour
         {
             Debug.Log("LevelComplete Home");
 
-            if (level == 15)
+            if (level == LevelsManagr.transform.childCount)
             {
                 PlayerPrefs.SetInt("Level", -1);
             }
@@ -248,7 +249,7 @@ public class GamePlayManager : MonoBehaviour
     public void NextLevel()
     {
 
-        if (level == 15)
+        if (level == LevelsManagr.transform.childCount)
         {
             PlayerPrefs.SetInt("Level", -1);
         }
