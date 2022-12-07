@@ -12,7 +12,7 @@ public class ObjectMovementSimple : MonoBehaviour
     bool started;
     private void Start()
     {
-        Start_point.position = Snake.transform.position;
+        //Start_point.position = Snake.transform.position;
     }
     // Update is called once per frame
     void Update()

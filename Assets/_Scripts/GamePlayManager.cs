@@ -34,6 +34,9 @@ public class GamePlayManager : MonoBehaviour
     public AudioSource S_Complete;
     public AudioSource S_Failed;
 
+    [HideInInspector]
+    public int TryAgain = 2;
+
     // Start is called before the first frame update
     private void Awake()
     {

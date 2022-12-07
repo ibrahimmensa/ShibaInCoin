@@ -8,6 +8,7 @@ public class Object_Movement : MonoBehaviour
     public Transform Start_point;
     public Transform End_point;
     public float speed;
+    bool hissing = true;
 
     bool started;
     private void Start()
@@ -17,22 +18,51 @@ public class Object_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(Snake.transform.position,End_point.position) < 0.01f)
+        if(hissing)
         {
-            if(!started)
+            if (Vector2.Distance(Snake.transform.position, End_point.position) < 0.01f)
             {
-                Snake.transform.rotation = End_point.rotation;
-                started = true;
+                if (!started)
+                {
+                    
+                    hissing = false;
+                    StartCoroutine("Hiss");
+                    
+                    
+                }
+                else
+                {
+                    
+                    hissing = false;
+                    StartCoroutine("NoHiss");
+                    //hissing = true;
+                    
+                }
+                End_point.position = Start_point.position;
+                Start_point.position = Snake.transform.position;
             }
-            else
-            {
-                Snake.transform.rotation = Start_point.rotation;
-                started=false;
-            }
-            End_point.position = Start_point.position;
-            Start_point.position = Snake.transform.position;
+            Snake.transform.position =
+                Vector2.MoveTowards(Snake.transform.position, End_point.position, speed * Time.deltaTime);
         }
-        Snake.transform.position =
-            Vector2.MoveTowards(Snake.transform.position, End_point.position, speed);
+        
     }
+    IEnumerator Hiss()
+    {
+        Snake.GetComponent<Animator>().SetBool("Hiss", true);
+        yield return new WaitForSeconds(0.51f);
+        Snake.GetComponent<Animator>().SetBool("Hiss", false);
+        Snake.transform.rotation = End_point.rotation;
+        started = true;
+        hissing = true;
+    }
+    IEnumerator NoHiss()
+    {
+        Snake.GetComponent<Animator>().SetBool("Hiss", true);
+        yield return new WaitForSeconds(0.51f);
+        Snake.GetComponent<Animator>().SetBool("Hiss", false);
+        Snake.transform.rotation = Start_point.rotation;
+        started = false;
+        hissing = true;
+    }
+
 }

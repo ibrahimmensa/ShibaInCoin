@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Character_Interactions : MonoBehaviour
 {
     public bool IsGamePlay;
+    
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -13,6 +14,15 @@ public class Character_Interactions : MonoBehaviour
     }
     void Start()
     {
+        if (PlayerPrefs.HasKey("Lives"))
+        {
+            if (PlayerPrefs.GetInt("Lives") == -1)
+                PlayerPrefs.SetInt("Lives", 2);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Lives", 2);
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +64,7 @@ public class Character_Interactions : MonoBehaviour
         GamePlayManager.instance.Move = false;
         if (collision.gameObject.CompareTag("Basket"))
         {
+            PlayerPrefs.SetInt("Lives", -1);
             Debug.Log("Android , Basket collision");
             if (!IsGamePlay)
                 return;
@@ -72,6 +83,7 @@ public class Character_Interactions : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Hurdle"))
         {
+            PlayerPrefs.SetInt("Lives", -1);
             Debug.Log("Android , Hurdle collision");
             if (!IsGamePlay)
                 return;
@@ -89,11 +101,22 @@ public class Character_Interactions : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Android , ground collision");
-            if (!IsGamePlay)
-                return;
-            IsGamePlay = false;
-            StartCoroutine(Retry());
+
+            
+            if (PlayerPrefs.GetInt("Lives") > 0)
+            {
+                PlayerPrefs.SetInt("Lives", PlayerPrefs.GetInt("Lives")-1);
+                GamePlayManager.instance.Restart();
+            }
+            else if(PlayerPrefs.GetInt("Lives") == 0)
+            {
+                PlayerPrefs.SetInt("Lives", -1);
+                Debug.Log("Android , ground collision");
+                if (!IsGamePlay)
+                    return;
+                IsGamePlay = false;
+                StartCoroutine(Retry());   
+            }
         }
     }
 }
