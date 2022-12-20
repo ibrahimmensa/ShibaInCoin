@@ -26,15 +26,13 @@ public class Object_Movement : MonoBehaviour
                 {
                     
                     hissing = false;
-                    StartCoroutine("Hiss");
-                    
-                    
+                    StartCoroutine(nameof(Hiss));
                 }
                 else
                 {
                     
                     hissing = false;
-                    StartCoroutine("NoHiss");
+                    StartCoroutine(nameof(NoHiss));
                     //hissing = true;
                     
                 }

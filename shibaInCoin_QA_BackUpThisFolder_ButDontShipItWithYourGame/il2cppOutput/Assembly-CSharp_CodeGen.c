@@ -162,30 +162,30 @@ extern void GamePlayManager_DubbleReeard_m055F1CADFD2DA06C74F69B9449127C7E9D2C97
 extern void GamePlayManager_skipLevel_m439948036EFFFBE34EDAEEC50C7294BDD6A6BF83 (void);
 // 0x0000004B System.Void GamePlayManager::.ctor()
 extern void GamePlayManager__ctor_m98EBAA455904D66AB82EB3FC3D53581E386B2E3B (void);
-// 0x0000004C System.Void GamePlayManager/<LevelCompleted>d__33::.ctor(System.Int32)
-extern void U3CLevelCompletedU3Ed__33__ctor_m0372BC5F2BC0E1B2E4C4A275341DD9842B27CABA (void);
-// 0x0000004D System.Void GamePlayManager/<LevelCompleted>d__33::System.IDisposable.Dispose()
-extern void U3CLevelCompletedU3Ed__33_System_IDisposable_Dispose_m5F7079ABCD6672670F86E28AB95FD4C4196E0426 (void);
-// 0x0000004E System.Boolean GamePlayManager/<LevelCompleted>d__33::MoveNext()
-extern void U3CLevelCompletedU3Ed__33_MoveNext_m8BC633185146A66902CFEADFBDFD3385B1A9D92B (void);
-// 0x0000004F System.Object GamePlayManager/<LevelCompleted>d__33::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CLevelCompletedU3Ed__33_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m94873BCDEC73C8B189F444283C5CD763BC40F705 (void);
-// 0x00000050 System.Void GamePlayManager/<LevelCompleted>d__33::System.Collections.IEnumerator.Reset()
-extern void U3CLevelCompletedU3Ed__33_System_Collections_IEnumerator_Reset_m4C225356FB3DF4785F23B2F413AD82D05C0E2B4E (void);
-// 0x00000051 System.Object GamePlayManager/<LevelCompleted>d__33::System.Collections.IEnumerator.get_Current()
-extern void U3CLevelCompletedU3Ed__33_System_Collections_IEnumerator_get_Current_mD70BD1D7E70688D254B9469C45AA5BB6E241F15D (void);
-// 0x00000052 System.Void GamePlayManager/<LevelFailed>d__34::.ctor(System.Int32)
-extern void U3CLevelFailedU3Ed__34__ctor_mE3E60E42532F138F091DD09B4C4AFE84B6628A77 (void);
-// 0x00000053 System.Void GamePlayManager/<LevelFailed>d__34::System.IDisposable.Dispose()
-extern void U3CLevelFailedU3Ed__34_System_IDisposable_Dispose_mFE41D5B3C93A4013CCB4FBC58A0A9291087A84FF (void);
-// 0x00000054 System.Boolean GamePlayManager/<LevelFailed>d__34::MoveNext()
-extern void U3CLevelFailedU3Ed__34_MoveNext_m16CB677710F7DAF3459C212DE2B7CD87131DB169 (void);
-// 0x00000055 System.Object GamePlayManager/<LevelFailed>d__34::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CLevelFailedU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m7A8B9DCA388F4CBF357437B61F55B0EF7F8702B6 (void);
-// 0x00000056 System.Void GamePlayManager/<LevelFailed>d__34::System.Collections.IEnumerator.Reset()
-extern void U3CLevelFailedU3Ed__34_System_Collections_IEnumerator_Reset_mC0A570BF5A1C5C9BD245CE5FECC30754115DE8A9 (void);
-// 0x00000057 System.Object GamePlayManager/<LevelFailed>d__34::System.Collections.IEnumerator.get_Current()
-extern void U3CLevelFailedU3Ed__34_System_Collections_IEnumerator_get_Current_m9AFBFA85B4BDA2FB7DBEB3F05BB77F249643E106 (void);
+// 0x0000004C System.Void GamePlayManager/<LevelCompleted>d__34::.ctor(System.Int32)
+extern void U3CLevelCompletedU3Ed__34__ctor_m735895D4A43E9081AF51168A4066EFB9C99539E6 (void);
+// 0x0000004D System.Void GamePlayManager/<LevelCompleted>d__34::System.IDisposable.Dispose()
+extern void U3CLevelCompletedU3Ed__34_System_IDisposable_Dispose_mA5D14AA942C3561BA32A17AA516B282BDBD3E0BC (void);
+// 0x0000004E System.Boolean GamePlayManager/<LevelCompleted>d__34::MoveNext()
+extern void U3CLevelCompletedU3Ed__34_MoveNext_mF9CDB00ECFFEDA8BC1B7DBF13C91E48AF1D59A36 (void);
+// 0x0000004F System.Object GamePlayManager/<LevelCompleted>d__34::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CLevelCompletedU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m445B3B22ABBD05C6E22A05082E6C36AE488EF500 (void);
+// 0x00000050 System.Void GamePlayManager/<LevelCompleted>d__34::System.Collections.IEnumerator.Reset()
+extern void U3CLevelCompletedU3Ed__34_System_Collections_IEnumerator_Reset_m741E5410B44996A5A59133899627E934C2A9353C (void);
+// 0x00000051 System.Object GamePlayManager/<LevelCompleted>d__34::System.Collections.IEnumerator.get_Current()
+extern void U3CLevelCompletedU3Ed__34_System_Collections_IEnumerator_get_Current_m2A2FD2ECC237149D3512047F990F5B657A5B7ED4 (void);
+// 0x00000052 System.Void GamePlayManager/<LevelFailed>d__35::.ctor(System.Int32)
+extern void U3CLevelFailedU3Ed__35__ctor_mF7A3FC08C7940F4437986E7B35545E49C7612F3C (void);
+// 0x00000053 System.Void GamePlayManager/<LevelFailed>d__35::System.IDisposable.Dispose()
+extern void U3CLevelFailedU3Ed__35_System_IDisposable_Dispose_mA9D8234A150B5673981D46E16F97C7BA965A728A (void);
+// 0x00000054 System.Boolean GamePlayManager/<LevelFailed>d__35::MoveNext()
+extern void U3CLevelFailedU3Ed__35_MoveNext_m8FB5E2A76AAA0F9B50899D18139E6F29F0CF6A62 (void);
+// 0x00000055 System.Object GamePlayManager/<LevelFailed>d__35::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CLevelFailedU3Ed__35_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m522502059602E9A12C1270FA00F1E7DFF9495ACE (void);
+// 0x00000056 System.Void GamePlayManager/<LevelFailed>d__35::System.Collections.IEnumerator.Reset()
+extern void U3CLevelFailedU3Ed__35_System_Collections_IEnumerator_Reset_m7180DC6852CDF7C380F6E2DA5B3B2D87A05054A6 (void);
+// 0x00000057 System.Object GamePlayManager/<LevelFailed>d__35::System.Collections.IEnumerator.get_Current()
+extern void U3CLevelFailedU3Ed__35_System_Collections_IEnumerator_get_Current_m5D5E554E2DFAFAEFE02F2D88DF40DCE04A850686 (void);
 // 0x00000058 System.Void GoogleAds::Start()
 extern void GoogleAds_Start_mE78DE03B5ED7DFA4576FCE933D47F0C31CB3D97F (void);
 // 0x00000059 System.Void GoogleAds::RequestBanner()
@@ -262,40 +262,74 @@ extern void MainScreen_RemoveAds_mAF04F2B84C0FA7259855762979A82B2AF5F8EFA0 (void
 extern void MainScreen_BonusMode_mFCAC22F19924C008FCEEBC9B8C1AE7A8D2E3D571 (void);
 // 0x0000007D System.Void MainScreen::.ctor()
 extern void MainScreen__ctor_m55103F042181B0B138F8317A147AC773A5722985 (void);
-// 0x0000007E System.Void Object_Movement::Start()
+// 0x0000007E System.Void ObjectMovementSimple::Start()
+extern void ObjectMovementSimple_Start_m7A3AB71B1BF1209CB4601E2D0B0F11E2E341655F (void);
+// 0x0000007F System.Void ObjectMovementSimple::Update()
+extern void ObjectMovementSimple_Update_m8BC330AADA53DCB82E4A71D0EE5E69CBBA86D5FE (void);
+// 0x00000080 System.Void ObjectMovementSimple::.ctor()
+extern void ObjectMovementSimple__ctor_mB62CC742A1F46C19F0170C8420E3D5D11AD22D84 (void);
+// 0x00000081 System.Void Object_Movement::Start()
 extern void Object_Movement_Start_m1586C9F6E219A26EDFFD05F61E2FBCC57CCCA517 (void);
-// 0x0000007F System.Void Object_Movement::Update()
+// 0x00000082 System.Void Object_Movement::Update()
 extern void Object_Movement_Update_m34F22EB04C6CD792508DB91B3C721F1FE55828ED (void);
-// 0x00000080 System.Void Object_Movement::.ctor()
+// 0x00000083 System.Collections.IEnumerator Object_Movement::Hiss()
+extern void Object_Movement_Hiss_m9AE5CB07029F63696D4A65FD28717A13CB188903 (void);
+// 0x00000084 System.Collections.IEnumerator Object_Movement::NoHiss()
+extern void Object_Movement_NoHiss_m1030D1D5EA7AE626AFDACF20A8452873D7008CE8 (void);
+// 0x00000085 System.Void Object_Movement::.ctor()
 extern void Object_Movement__ctor_m04BE15139E699D96DCBCA61783A98EE962ADF73C (void);
-// 0x00000081 T Singleton`1::get_Instance()
-// 0x00000082 System.Void Singleton`1::Awake()
-// 0x00000083 System.Void Singleton`1::.ctor()
-// 0x00000084 System.Void StoreManager::Start()
+// 0x00000086 System.Void Object_Movement/<Hiss>d__8::.ctor(System.Int32)
+extern void U3CHissU3Ed__8__ctor_m8671B8F77802D2CA3D99056825CE660420389D5B (void);
+// 0x00000087 System.Void Object_Movement/<Hiss>d__8::System.IDisposable.Dispose()
+extern void U3CHissU3Ed__8_System_IDisposable_Dispose_m74AAC9B58F06F014E50C912195868D99CA7DA8A1 (void);
+// 0x00000088 System.Boolean Object_Movement/<Hiss>d__8::MoveNext()
+extern void U3CHissU3Ed__8_MoveNext_m0C2063F4EB58C1B1D56F26B9187B536D90E6B9A5 (void);
+// 0x00000089 System.Object Object_Movement/<Hiss>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CHissU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4BBBBF70E700F2CDF5FFEDF554F96E1B16888F3B (void);
+// 0x0000008A System.Void Object_Movement/<Hiss>d__8::System.Collections.IEnumerator.Reset()
+extern void U3CHissU3Ed__8_System_Collections_IEnumerator_Reset_m9E85CB1F420A06B00D7722D17FDE6247E6138944 (void);
+// 0x0000008B System.Object Object_Movement/<Hiss>d__8::System.Collections.IEnumerator.get_Current()
+extern void U3CHissU3Ed__8_System_Collections_IEnumerator_get_Current_m7CA1A879AA57FA2754FE9A876D66730CDE959AA1 (void);
+// 0x0000008C System.Void Object_Movement/<NoHiss>d__9::.ctor(System.Int32)
+extern void U3CNoHissU3Ed__9__ctor_m43AECDAC95F299B43DF6CDDD7EEA7C6632EEA97F (void);
+// 0x0000008D System.Void Object_Movement/<NoHiss>d__9::System.IDisposable.Dispose()
+extern void U3CNoHissU3Ed__9_System_IDisposable_Dispose_mA3461B45ADD956DBADF514F2040FCA5412DF06D3 (void);
+// 0x0000008E System.Boolean Object_Movement/<NoHiss>d__9::MoveNext()
+extern void U3CNoHissU3Ed__9_MoveNext_m9FB02F0D0F4949A6EF2907F2A08723D71D33EE2F (void);
+// 0x0000008F System.Object Object_Movement/<NoHiss>d__9::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CNoHissU3Ed__9_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m5F2C9FF3F058829D307FC7EF8C325D0C3759B117 (void);
+// 0x00000090 System.Void Object_Movement/<NoHiss>d__9::System.Collections.IEnumerator.Reset()
+extern void U3CNoHissU3Ed__9_System_Collections_IEnumerator_Reset_m8CD34AAEEC647758D1C91EEF527DCBCFAAB23648 (void);
+// 0x00000091 System.Object Object_Movement/<NoHiss>d__9::System.Collections.IEnumerator.get_Current()
+extern void U3CNoHissU3Ed__9_System_Collections_IEnumerator_get_Current_mE2938D64ADC7782965C03F2F3B1A29C0D39F0841 (void);
+// 0x00000092 T Singleton`1::get_Instance()
+// 0x00000093 System.Void Singleton`1::Awake()
+// 0x00000094 System.Void Singleton`1::.ctor()
+// 0x00000095 System.Void StoreManager::Start()
 extern void StoreManager_Start_m06BA4C37BD04BAAA47131FDFA341EA661E740B04 (void);
-// 0x00000085 System.Void StoreManager::OnEnable()
+// 0x00000096 System.Void StoreManager::OnEnable()
 extern void StoreManager_OnEnable_m3A4016DCF04191622C6534D9B5812ADF1B5C2CE5 (void);
-// 0x00000086 System.Void StoreManager::Update()
+// 0x00000097 System.Void StoreManager::Update()
 extern void StoreManager_Update_m7755CF4F956C759D8590870D9353AC9649CF9986 (void);
-// 0x00000087 System.Void StoreManager::mapCharacterData()
+// 0x00000098 System.Void StoreManager::mapCharacterData()
 extern void StoreManager_mapCharacterData_m4030AB124CBB78AC8F208506A340C2FEC33AC55E (void);
-// 0x00000088 System.Void StoreManager::UnlockShibaWithAds()
+// 0x00000099 System.Void StoreManager::UnlockShibaWithAds()
 extern void StoreManager_UnlockShibaWithAds_mC1BCB1CA12F276A10CFA912D176259F912071623 (void);
-// 0x00000089 System.Void StoreManager::unlockShiba()
+// 0x0000009A System.Void StoreManager::unlockShiba()
 extern void StoreManager_unlockShiba_mE003ABAAFB1DC12F7DF4287EC9B7BE1115E3FF3C (void);
-// 0x0000008A System.Void StoreManager::selectShiba()
+// 0x0000009B System.Void StoreManager::selectShiba()
 extern void StoreManager_selectShiba_m79873A6D5E487D1C9C3C2E530D656AF134334A20 (void);
-// 0x0000008B System.Void StoreManager::selectShiba(CharacterPrefabData)
+// 0x0000009C System.Void StoreManager::selectShiba(CharacterPrefabData)
 extern void StoreManager_selectShiba_m9A1976B500F60AF4D7383B9C8F729579E275A786 (void);
-// 0x0000008C System.Void StoreManager::LerpToButton(System.Int32)
+// 0x0000009D System.Void StoreManager::LerpToButton(System.Int32)
 extern void StoreManager_LerpToButton_m66BFE90ECBAE1B54DD8CBED0F0EF1F4396CFB765 (void);
-// 0x0000008D System.Void StoreManager::StartDrage()
+// 0x0000009E System.Void StoreManager::StartDrage()
 extern void StoreManager_StartDrage_m4F68B363BB98A60F38A81F965F4444A6568BEA5E (void);
-// 0x0000008E System.Void StoreManager::EndDrage()
+// 0x0000009F System.Void StoreManager::EndDrage()
 extern void StoreManager_EndDrage_mDAB0E29EEC85F752C465CC2B224C2550FB72B3F4 (void);
-// 0x0000008F System.Void StoreManager::.ctor()
+// 0x000000A0 System.Void StoreManager::.ctor()
 extern void StoreManager__ctor_m88D03BE902D61363210B08ECD6430F3AFCAC4562 (void);
-static Il2CppMethodPointer s_methodPointers[143] = 
+static Il2CppMethodPointer s_methodPointers[160] = 
 {
 	CoinWarning_Start_m9DDE59FA9BAEEEF71DA55650149C64470982B4BA,
 	CoinWarning_Update_m74B6A6774CB96FB9A2CB6624B75D9DB3ED4739CF,
@@ -372,18 +406,18 @@ static Il2CppMethodPointer s_methodPointers[143] =
 	GamePlayManager_DubbleReeard_m055F1CADFD2DA06C74F69B9449127C7E9D2C9753,
 	GamePlayManager_skipLevel_m439948036EFFFBE34EDAEEC50C7294BDD6A6BF83,
 	GamePlayManager__ctor_m98EBAA455904D66AB82EB3FC3D53581E386B2E3B,
-	U3CLevelCompletedU3Ed__33__ctor_m0372BC5F2BC0E1B2E4C4A275341DD9842B27CABA,
-	U3CLevelCompletedU3Ed__33_System_IDisposable_Dispose_m5F7079ABCD6672670F86E28AB95FD4C4196E0426,
-	U3CLevelCompletedU3Ed__33_MoveNext_m8BC633185146A66902CFEADFBDFD3385B1A9D92B,
-	U3CLevelCompletedU3Ed__33_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m94873BCDEC73C8B189F444283C5CD763BC40F705,
-	U3CLevelCompletedU3Ed__33_System_Collections_IEnumerator_Reset_m4C225356FB3DF4785F23B2F413AD82D05C0E2B4E,
-	U3CLevelCompletedU3Ed__33_System_Collections_IEnumerator_get_Current_mD70BD1D7E70688D254B9469C45AA5BB6E241F15D,
-	U3CLevelFailedU3Ed__34__ctor_mE3E60E42532F138F091DD09B4C4AFE84B6628A77,
-	U3CLevelFailedU3Ed__34_System_IDisposable_Dispose_mFE41D5B3C93A4013CCB4FBC58A0A9291087A84FF,
-	U3CLevelFailedU3Ed__34_MoveNext_m16CB677710F7DAF3459C212DE2B7CD87131DB169,
-	U3CLevelFailedU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m7A8B9DCA388F4CBF357437B61F55B0EF7F8702B6,
-	U3CLevelFailedU3Ed__34_System_Collections_IEnumerator_Reset_mC0A570BF5A1C5C9BD245CE5FECC30754115DE8A9,
-	U3CLevelFailedU3Ed__34_System_Collections_IEnumerator_get_Current_m9AFBFA85B4BDA2FB7DBEB3F05BB77F249643E106,
+	U3CLevelCompletedU3Ed__34__ctor_m735895D4A43E9081AF51168A4066EFB9C99539E6,
+	U3CLevelCompletedU3Ed__34_System_IDisposable_Dispose_mA5D14AA942C3561BA32A17AA516B282BDBD3E0BC,
+	U3CLevelCompletedU3Ed__34_MoveNext_mF9CDB00ECFFEDA8BC1B7DBF13C91E48AF1D59A36,
+	U3CLevelCompletedU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m445B3B22ABBD05C6E22A05082E6C36AE488EF500,
+	U3CLevelCompletedU3Ed__34_System_Collections_IEnumerator_Reset_m741E5410B44996A5A59133899627E934C2A9353C,
+	U3CLevelCompletedU3Ed__34_System_Collections_IEnumerator_get_Current_m2A2FD2ECC237149D3512047F990F5B657A5B7ED4,
+	U3CLevelFailedU3Ed__35__ctor_mF7A3FC08C7940F4437986E7B35545E49C7612F3C,
+	U3CLevelFailedU3Ed__35_System_IDisposable_Dispose_mA9D8234A150B5673981D46E16F97C7BA965A728A,
+	U3CLevelFailedU3Ed__35_MoveNext_m8FB5E2A76AAA0F9B50899D18139E6F29F0CF6A62,
+	U3CLevelFailedU3Ed__35_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m522502059602E9A12C1270FA00F1E7DFF9495ACE,
+	U3CLevelFailedU3Ed__35_System_Collections_IEnumerator_Reset_m7180DC6852CDF7C380F6E2DA5B3B2D87A05054A6,
+	U3CLevelFailedU3Ed__35_System_Collections_IEnumerator_get_Current_m5D5E554E2DFAFAEFE02F2D88DF40DCE04A850686,
 	GoogleAds_Start_mE78DE03B5ED7DFA4576FCE933D47F0C31CB3D97F,
 	GoogleAds_RequestBanner_mC5EB68248D8C9FEEE4A45666AFE7AFD2F9640A97,
 	GoogleAds_destroyBanner_m6AEFD3DCAB6B99DD25AF94FA5C5973B2EA11A7BA,
@@ -422,9 +456,26 @@ static Il2CppMethodPointer s_methodPointers[143] =
 	MainScreen_RemoveAds_mAF04F2B84C0FA7259855762979A82B2AF5F8EFA0,
 	MainScreen_BonusMode_mFCAC22F19924C008FCEEBC9B8C1AE7A8D2E3D571,
 	MainScreen__ctor_m55103F042181B0B138F8317A147AC773A5722985,
+	ObjectMovementSimple_Start_m7A3AB71B1BF1209CB4601E2D0B0F11E2E341655F,
+	ObjectMovementSimple_Update_m8BC330AADA53DCB82E4A71D0EE5E69CBBA86D5FE,
+	ObjectMovementSimple__ctor_mB62CC742A1F46C19F0170C8420E3D5D11AD22D84,
 	Object_Movement_Start_m1586C9F6E219A26EDFFD05F61E2FBCC57CCCA517,
 	Object_Movement_Update_m34F22EB04C6CD792508DB91B3C721F1FE55828ED,
+	Object_Movement_Hiss_m9AE5CB07029F63696D4A65FD28717A13CB188903,
+	Object_Movement_NoHiss_m1030D1D5EA7AE626AFDACF20A8452873D7008CE8,
 	Object_Movement__ctor_m04BE15139E699D96DCBCA61783A98EE962ADF73C,
+	U3CHissU3Ed__8__ctor_m8671B8F77802D2CA3D99056825CE660420389D5B,
+	U3CHissU3Ed__8_System_IDisposable_Dispose_m74AAC9B58F06F014E50C912195868D99CA7DA8A1,
+	U3CHissU3Ed__8_MoveNext_m0C2063F4EB58C1B1D56F26B9187B536D90E6B9A5,
+	U3CHissU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4BBBBF70E700F2CDF5FFEDF554F96E1B16888F3B,
+	U3CHissU3Ed__8_System_Collections_IEnumerator_Reset_m9E85CB1F420A06B00D7722D17FDE6247E6138944,
+	U3CHissU3Ed__8_System_Collections_IEnumerator_get_Current_m7CA1A879AA57FA2754FE9A876D66730CDE959AA1,
+	U3CNoHissU3Ed__9__ctor_m43AECDAC95F299B43DF6CDDD7EEA7C6632EEA97F,
+	U3CNoHissU3Ed__9_System_IDisposable_Dispose_mA3461B45ADD956DBADF514F2040FCA5412DF06D3,
+	U3CNoHissU3Ed__9_MoveNext_m9FB02F0D0F4949A6EF2907F2A08723D71D33EE2F,
+	U3CNoHissU3Ed__9_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m5F2C9FF3F058829D307FC7EF8C325D0C3759B117,
+	U3CNoHissU3Ed__9_System_Collections_IEnumerator_Reset_m8CD34AAEEC647758D1C91EEF527DCBCFAAB23648,
+	U3CNoHissU3Ed__9_System_Collections_IEnumerator_get_Current_mE2938D64ADC7782965C03F2F3B1A29C0D39F0841,
 	NULL,
 	NULL,
 	NULL,
@@ -441,7 +492,7 @@ static Il2CppMethodPointer s_methodPointers[143] =
 	StoreManager_EndDrage_mDAB0E29EEC85F752C465CC2B224C2550FB72B3F4,
 	StoreManager__ctor_m88D03BE902D61363210B08ECD6430F3AFCAC4562,
 };
-static const int32_t s_InvokerIndices[143] = 
+static const int32_t s_InvokerIndices[160] = 
 {
 	3257,
 	3257,
@@ -571,6 +622,23 @@ static const int32_t s_InvokerIndices[143] =
 	3257,
 	3257,
 	3257,
+	3257,
+	3257,
+	3176,
+	3176,
+	3257,
+	2646,
+	3257,
+	3119,
+	3176,
+	3257,
+	3176,
+	2646,
+	3257,
+	3119,
+	3176,
+	3257,
+	3176,
 	0,
 	0,
 	0,
@@ -589,7 +657,7 @@ static const int32_t s_InvokerIndices[143] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[1] = 
 {
-	{ 0x02000014, { 0, 5 } },
+	{ 0x02000017, { 0, 5 } },
 };
 extern const uint32_t g_rgctx_Singleton_1_tEB10BC7581192E8DC4004CC6A80E88A3E42C3444;
 extern const uint32_t g_rgctx_T_t2337B8A22C295A41D129CA0B4B104663AAC37B94;
@@ -608,7 +676,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	143,
+	160,
 	s_methodPointers,
 	0,
 	NULL,

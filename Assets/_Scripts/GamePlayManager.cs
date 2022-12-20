@@ -49,7 +49,7 @@ public class GamePlayManager : MonoBehaviour
     }
     void Start()
     {
-        PlayerPrefs.SetInt("Level", 25);
+        PlayerPrefs.SetInt("Level", 26);
         instance = this;
         //select shiba
         if (PlayerPrefs.HasKey("Shiba"))
