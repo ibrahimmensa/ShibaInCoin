@@ -13,6 +13,7 @@ public class GamePlayManager : MonoBehaviour
     public GameObject P_Pause;
     public GameObject P_Loading;
     public GameObject P_BlackScreen;
+    public Button SkipBtn;
     public GameObject Player;
     public GameObject PlayerObj;
 
@@ -49,7 +50,7 @@ public class GamePlayManager : MonoBehaviour
     }
     void Start()
     {
-        PlayerPrefs.SetInt("Level", 26);
+         //PlayerPrefs.SetInt("Level", 48);
         instance = this;
         //select shiba
         if (PlayerPrefs.HasKey("Shiba"))
@@ -243,6 +244,7 @@ public class GamePlayManager : MonoBehaviour
             Time.timeScale = 1;
             Debug.Log("Pause Home");
         }
+        SceneManager.LoadScene(0);
     }
     public void Restart()
     {
@@ -286,6 +288,10 @@ public class GamePlayManager : MonoBehaviour
         P_LevelFail.transform.Find("Coins").transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("Coins").ToString();
         P_BlackScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
+        if (PlayerPrefs.GetInt("Level") == 49)
+            SkipBtn.interactable = false;
+        else
+            SkipBtn.interactable = true;
         P_LevelFail.SetActive(true);
         P_BlackScreen.SetActive(false);
         yield return null;

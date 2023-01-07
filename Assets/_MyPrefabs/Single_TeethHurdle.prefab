@@ -50,7 +50,7 @@ MonoBehaviour:
   Snake: {fileID: 6064367868600737330}
   Start_point: {fileID: 6064367869711240224}
   End_point: {fileID: 6064367869631146609}
-  speed: 0.05
+  speed: 0.01
 --- !u!1 &6064367868600737330
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,12 +126,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 5308eb26b19932b4eb4605d52e4e1dd6, type: 3}
+  m_Sprite: {fileID: 1682156516, guid: 5308eb26b19932b4eb4605d52e4e1dd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 1.38, y: 2.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,8 +154,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.39, y: 2.09}
-    newSize: {x: 10.8, y: 19.2}
+    oldSize: {x: 1.38, y: 2.09}
+    newSize: {x: 1.38, y: 2.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
