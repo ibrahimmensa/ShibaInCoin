@@ -361,7 +361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: Levels
         m_Mode: 1
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: PlayBtn
         m_Mode: 1
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: BonusMode
         m_Mode: 1
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: Store
         m_Mode: 1
@@ -1766,7 +1766,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 737870628}
         m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
         m_MethodName: unlockShiba
         m_Mode: 1
@@ -4070,7 +4070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e8bae59eab589479f921938bb7acaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shibaData: {fileID: 0}
+  shibaData: {fileID: 11400000, guid: e9a0f57837b61c84693b54ce54778ea3, type: 2}
   CoinWarning: {fileID: 1529140426}
   Cointxt: {fileID: 276841425}
   contant: {fileID: 597612772}
@@ -4093,6 +4093,16 @@ MonoBehaviour:
   adsCount_ToUnlock: {fileID: 1975009897}
   previous: {fileID: 0}
   Current: {fileID: 0}
+  temp:
+    Character_Name: 
+    CanUnlockByAds: 0
+    ComingSoon: 0
+    IsLocked: 1
+    AdsToWatch_ToUnlock: 0
+    AdsWatched: 0
+    NeedCoins_ToUnlock: 0
+    isSelected: 0
+    CHaracterImg: {fileID: 0}
   panel: {fileID: 597612773}
   bttn:
   - {fileID: 1388718007}
@@ -4108,6 +4118,7 @@ MonoBehaviour:
   - {fileID: 86436048}
   center: {fileID: 457730691}
   distance: []
+  draging: 0
   AdsCount: {fileID: 0}
   LockCover: {fileID: 0}
 --- !u!114 &737870629
@@ -4937,6 +4948,18 @@ MonoBehaviour:
       - m_Target: {fileID: 427654870}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1936681057}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: SavePrefs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6169,60 +6192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a3574f4489a094085b777f506a9101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1299125291
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1299125292}
-  - component: {fileID: 1299125293}
-  m_Layer: 0
-  m_Name: UnityAds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1299125292
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299125291}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1299125293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299125291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c0a2acf4f460b43b756d4f23c47836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _androidGameId: 5021230
-  _iOSGameId: 5021231
-  _testMode: 0
-  _gameId: 
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
-  _androidAdUnitIdInterstitial: Interstitial_Android
-  _iOsAdUnitIdInterstitial: Interstitial_iOS
-  currentAdType: 0
-  storeManager: {fileID: 0}
 --- !u!1 &1346532141
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,7 +6373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362991949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 525.55725, y: 963.39966, z: -33.968212}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7049,50 +7018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a3574f4489a094085b777f506a9101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1710156257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1710156259}
-  - component: {fileID: 1710156258}
-  m_Layer: 0
-  m_Name: GoogleAds
-  m_TagString: Ads
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1710156258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710156257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94bf7150cecb8d47b493001f3a98679, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1710156259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710156257}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07772139, y: 0.8521958, z: -2.1323752}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1710178322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,9 +7759,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
-        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
-        m_MethodName: FreeCoins
+      - m_Target: {fileID: 1936681057}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: freecoins
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7980,7 +7905,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: Setting
         m_Mode: 1
@@ -8150,7 +8075,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047113007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
         m_MethodName: RemoveAds
         m_Mode: 1
@@ -8784,13 +8709,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalCoins: 0
   CoinsTxt: {fileID: 965025785}
-  StoreManager: {fileID: 0}
+  StoreManager: {fileID: 737870628}
   Sound: {fileID: 1362991949}
   BG_Music: {fileID: 2103874501}
   SoundBtn_On: {fileID: 2001650484}
   SoundBtn_Off: {fileID: 479622686}
   MusicBtn_On: {fileID: 565417034}
   MusicBtn_Off: {fileID: 530671950}
+  VibBtn_On: {fileID: 1756724446}
+  VibBtn_Off: {fileID: 1346532141}
 --- !u!4 &1936681058
 Transform:
   m_ObjectHideFlags: 0
@@ -8799,7 +8726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936681056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 522.7589, y: 1040.7797, z: -179.8075}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9626,7 +9553,6 @@ GameObject:
   - component: {fileID: 2047113005}
   - component: {fileID: 2047113004}
   - component: {fileID: 2047113003}
-  - component: {fileID: 2047113007}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -9719,18 +9645,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2047113007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047113002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d61865417d83d141bc89d9d59541a79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2067413844
 GameObject:
   m_ObjectHideFlags: 0
@@ -9915,7 +9829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103874501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 525.55725, y: 963.39966, z: -33.968212}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

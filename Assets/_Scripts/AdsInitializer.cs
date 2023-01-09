@@ -25,7 +25,6 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
     public RewardedAdType currentAdType;
     string _adUnitId = null; // This will remain null for unsupported platforms
     string _adUnitIdInterstitial = null;
-    public StoreManager storeManager;
     public override void  Awake()
     {
         if(AdsInitializer.Instance  != this)
@@ -139,11 +138,18 @@ public class AdsInitializer : Singleton<AdsInitializer>, IUnityAdsInitialization
                     GamePlayManager.instance.DubbleReward.interactable = false;
                     break;
                 case RewardedAdType.SKIPLEVEL:
-                    PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-                    SceneManager.LoadScene(1);
+                    if(PlayerPrefs.GetInt("Level") == 49)
+                    {
+                        PlayerPrefs.SetInt("Level",0);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+                    }
+                    SceneManager.LoadScene(2);
                     break;
                 case RewardedAdType.UNLOCKSHIBA:
-                    storeManager.UnlockShibaWithAds();
+                    MainMenuManager.instance.StoreManager.UnlockShibaWithAds();
                     break;
             }
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,9 +16,11 @@ public class StoreManager : MonoBehaviour
     public Button adsBtn, PlayBtn, UnlockBtn;
     public Text adsCount_ToUnlock;
     public CharacterPrefabData previous, Current;
+    public CharacterDetails temp;
     // Start is called before the first frame update
     void Start()
     {
+        temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
         minButtonNum = 0;
         mapCharacterData();
         Current = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>();
@@ -39,11 +42,19 @@ public class StoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // span scroll view
-        for(int i=0; i<bttn.Length;i++)
+        if (Input.GetMouseButton(0))
+        {
+            StartDrage();
+        }
+        else
+        {
+            EndDrage();
+        }
+            // span scroll view
+        for (int i=0; i<bttn.Length;i++)
         {
             distance[i] = Mathf.Abs(center.transform.position.x - bttn[i].transform.position.x);
-            print(distance);
+            //print(distance);
         }
         float MinDistance = Mathf.Min(distance);
         for(int a=0; a<bttn.Length; a++)
@@ -61,7 +72,6 @@ public class StoreManager : MonoBehaviour
                 mapCharacterData();
             }
         }
-
         Cointxt.text = PlayerPrefs.GetInt("Coins").ToString();
         //if(!shibaData.CD[minButtonNum].IsLocked)
         //{
@@ -108,7 +118,7 @@ public class StoreManager : MonoBehaviour
     }
     public void UnlockShibaWithAds()
     {
-        CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
+        temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
         temp.AdsWatched++;
         adsCount_ToUnlock.text = temp.AdsWatched.ToString() + "/" + temp.AdsToWatch_ToUnlock.ToString();
         if (temp.AdsToWatch_ToUnlock == temp.AdsWatched)
@@ -118,7 +128,7 @@ public class StoreManager : MonoBehaviour
     }
     public void unlockShiba()
     {
-        CharacterDetails temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
+        temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
         if (temp.AdsToWatch_ToUnlock == temp.AdsWatched)
         {
             adsBtn.gameObject.SetActive(false);
@@ -176,7 +186,7 @@ public class StoreManager : MonoBehaviour
     public RectTransform center;
 
     public float[] distance;
-    private bool draging = false;
+    public bool draging = false;
     private int bttnDistance;
     private int minButtonNum;
 

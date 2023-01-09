@@ -18,10 +18,14 @@ public class Loading : MonoBehaviour
     }
     public void LoadGamePlay()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void LoadHome()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }

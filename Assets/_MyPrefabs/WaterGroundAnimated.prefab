@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263762626047579255}
   - component: {fileID: 1263762626047579253}
-  - component: {fileID: 1263762626047579252}
+  - component: {fileID: 1263762625717946018}
   m_Layer: 0
   m_Name: WaterWithAnimation
   m_TagString: Hurdle
@@ -170,26 +170,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1263762626047579252
-Animator:
-  serializedVersion: 4
+--- !u!114 &1263762625717946018
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263762626047579256}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 15e22a4eefa75f748932b2ae853902d7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 0
+  delay: 0
+  duration: 40
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: -0.8, y: -3.26, z: 0}
+  to: {x: 8, y: -3.26, z: 0}
+  worldSpace: 0
 --- !u!1 &1263762626521081800
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263762626521081799}
   - component: {fileID: 1263762626521081797}
-  - component: {fileID: 1263762626521081798}
+  - component: {fileID: 406514483}
   m_Layer: 0
   m_Name: WaterWithAnimation (1)
   m_TagString: Hurdle
@@ -216,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263762626521081800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.82, y: -3.6, z: 0}
+  m_LocalPosition: {x: -0.8, y: -3.6, z: 0}
   m_LocalScale: {x: 0.26629683, y: 0.32865503, z: 0.211032}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -276,26 +305,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1263762626521081798
-Animator:
-  serializedVersion: 4
+--- !u!114 &406514483
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263762626521081800}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b01a65903e269441b77c8e684da6500, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 0
+  delay: 0
+  duration: 30
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: -0.8, y: -3.6, z: 0}
+  to: {x: 8, y: -3.6, z: 0}
+  worldSpace: 0
 --- !u!1 &1263762626609349762
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +449,7 @@ GameObject:
   - component: {fileID: 1263762627526265793}
   - component: {fileID: 1263762627526265854}
   - component: {fileID: 1263762627526265855}
-  - component: {fileID: 1263762627526265792}
+  - component: {fileID: 1263762625717946019}
   m_Layer: 0
   m_Name: WaterWithAnimation (2)
   m_TagString: Hurdle
@@ -407,7 +465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263762627526265794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.79, y: -3.1, z: 0}
+  m_LocalPosition: {x: -0.8, y: -3.1, z: 0}
   m_LocalScale: {x: 0.26629683, y: 0.32865503, z: 0.211032}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,26 +550,55 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 27.615704, y: 4.0916195}
   m_EdgeRadius: 0
---- !u!95 &1263762627526265792
-Animator:
-  serializedVersion: 4
+--- !u!114 &1263762625717946019
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263762627526265794}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8a1cccbcffeb0246b75183a9b556151, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 0
+  delay: 0
+  duration: 60
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: -0.8, y: -3.1, z: 0}
+  to: {x: 0.8, y: -3.1, z: 0}
+  worldSpace: 0
 --- !u!1 &5078020955252536205
 GameObject:
   m_ObjectHideFlags: 0
