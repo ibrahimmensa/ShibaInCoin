@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour
 {
     public CHaracterInfo shibaData;
+    public SaveData SaveData;
     public GameObject CoinWarning;
     //coins
     public Text Cointxt;
@@ -20,6 +22,7 @@ public class StoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SaveData.readFile();
         temp = bttn[minButtonNum].gameObject.GetComponent<CharacterPrefabData>().getCharacterData();
         minButtonNum = 0;
         mapCharacterData();
@@ -125,6 +128,7 @@ public class StoreManager : MonoBehaviour
         {
             adsBtn.interactable = false;
         }
+        SaveData.saveFile();
     }
     public void unlockShiba()
     {
@@ -159,6 +163,7 @@ public class StoreManager : MonoBehaviour
         {
             CoinWarning.SetActive(true);
         }
+        SaveData.saveFile();
     }
     public void selectShiba()
     {
@@ -167,6 +172,7 @@ public class StoreManager : MonoBehaviour
         previous.unselectCharacter();
         Current.SelectCharacter();
         PlayerPrefs.SetInt("Shiba", minButtonNum);
+        SaveData.saveFile();
     } 
     public void selectShiba(CharacterPrefabData c)
     {
@@ -177,6 +183,7 @@ public class StoreManager : MonoBehaviour
         previous.unselectCharacter();
         Current.SelectCharacter();
         PlayerPrefs.SetInt("Shiba", minButtonNum);
+        SaveData.saveFile();
     }
 
 
@@ -208,4 +215,7 @@ public class StoreManager : MonoBehaviour
     {
         draging = false;
     }
+
+
+    
 }

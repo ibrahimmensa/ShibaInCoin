@@ -4071,6 +4071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shibaData: {fileID: 11400000, guid: e9a0f57837b61c84693b54ce54778ea3, type: 2}
+  SaveData:
+    shibaData: {fileID: 11400000, guid: e9a0f57837b61c84693b54ce54778ea3, type: 2}
   CoinWarning: {fileID: 1529140426}
   Cointxt: {fileID: 276841425}
   contant: {fileID: 597612772}

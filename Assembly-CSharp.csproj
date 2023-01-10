@@ -178,6 +178,7 @@
     <Compile Include="Assets\_Scripts\Tweening\NGUI\Scripts\Interaction\TypewriterEffect.cs" />
     <Compile Include="Assets\_Scripts\Tweening\NGUI\Scripts\Internal\NGUIDebug.cs" />
     <Compile Include="Assets\_Scripts\Tweening\NGUI\Scripts\Tweening\TweenRotation.cs" />
+    <Compile Include="Assets\ScriptableObjects\SaveData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Common.dll" />

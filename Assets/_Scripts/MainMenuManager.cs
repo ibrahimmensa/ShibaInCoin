@@ -40,8 +40,6 @@ public class MainMenuManager : MonoBehaviour
         {
             GoogleAds.Instance.RequestBanner();
         }
-
-
         //coins
         if (PlayerPrefs.HasKey("Coins"))
         {
@@ -56,77 +54,51 @@ public class MainMenuManager : MonoBehaviour
         }
 
         //sound
-        if (PlayerPrefs.HasKey("Sound"))
+        if (PlayerPrefs.GetInt("Sound",1) == 1)
         {
-            if (PlayerPrefs.GetInt("Sound") == 1)
-            {
-                Sound.SetActive(true);
-                SoundBtn_On.SetActive(true);
-                SoundBtn_Off.SetActive(false);
-                Debug.Log("sound on");
-            }
-            else
-            {
-                Sound.SetActive(false);
-                SoundBtn_On.SetActive(false);
-                SoundBtn_Off.SetActive(true);
-                Debug.Log("sound off");
-            }
+            Sound.SetActive(true);
+            SoundBtn_On.SetActive(true);
+            SoundBtn_Off.SetActive(false);
+            Debug.Log("sound on");
         }
         else
         {
-            PlayerPrefs.SetInt("Sound", 1);
-            Debug.Log("sound no key");
+            Sound.SetActive(false);
+            SoundBtn_On.SetActive(false);
+            SoundBtn_Off.SetActive(true);
+            Debug.Log("sound off");
         }
 
 
         //check Music settings
-        if (PlayerPrefs.HasKey("Music"))
+        if (PlayerPrefs.GetInt("Music",1) == 1)
         {
-            if (PlayerPrefs.GetInt("Music") == 1)
-            {
-                BG_Music.SetActive(true);
-                MusicBtn_On.SetActive(true);
-                MusicBtn_Off.SetActive(false);
-                Debug.Log("music on");
-            }
-            else
-            {
-                BG_Music.SetActive(false);
-                MusicBtn_On.SetActive(false);
-                MusicBtn_Off.SetActive(true);
-                Debug.Log("music off");
-            }
-
+            BG_Music.SetActive(true);
+            MusicBtn_On.SetActive(true);
+            MusicBtn_Off.SetActive(false);
+            Debug.Log("music on");
         }
         else
         {
-            PlayerPrefs.SetInt("Music", 1);
-            Debug.Log("music no key");
+            BG_Music.SetActive(false);
+            MusicBtn_On.SetActive(false);
+            MusicBtn_Off.SetActive(true);
+            Debug.Log("music off");
         }
 
 
         //vib setting
-        if (PlayerPrefs.HasKey("Vibrate"))
+        if (PlayerPrefs.GetInt("Vibrate", 1) == 1)
         {
-            if (PlayerPrefs.GetInt("Vibrate") == 1)
-            {
-                VibBtn_On.SetActive(true);
-                VibBtn_Off.SetActive(false);
-                Debug.Log("vib on");
-            }
-            else
-            {
-                VibBtn_On.SetActive(false);
-                VibBtn_Off.SetActive(true);
-                Debug.Log("sound off");
-            }
-
+            VibBtn_On.SetActive(true);
+            VibBtn_Off.SetActive(false);
+            Debug.Log("vib on");
         }
         else
         {
-            PlayerPrefs.SetInt("Vibrate", 1);
-            Debug.Log("vib no key");
+            VibBtn_On.SetActive(false);
+            VibBtn_Off.SetActive(true);
+            Debug.Log("sound off");
         }
     }
 
